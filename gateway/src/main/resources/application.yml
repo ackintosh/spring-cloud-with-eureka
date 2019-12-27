@@ -3,13 +3,13 @@ server:
 
 spring:
   application:
-    name: gateway-service
+    name: gateway
   output.ansi.enabled: ALWAYS
   cloud:
     gateway:
       routes:
         - id: healthy-service
-          uri: http://localhost:9001
+          uri: lb://healthy-service
           predicates:
             - Path=/healthy/**
           filters:
@@ -23,3 +23,11 @@ spring:
                 name: healthyService
 
 logging.level.io.github.resilience4j: DEBUG
+
+eureka:
+  client:
+    enabled: true
+    service-url:
+      defaultZone: http://localhost:9010/eureka/
+  instance:
+    preferIpAddress: true

@@ -27,16 +27,14 @@ dependencies {
     // *** Circuit breaker ***
     // we need to include reactive version of Spring Cloud Circuit Breaker since gateway is started on reactive Netty server.
     implementation("org.springframework.cloud:spring-cloud-starter-circuitbreaker-reactor-resilience4j")
-    // FIXME: here is a workaround for https://github.com/spring-cloud/spring-cloud-gateway/issues/1442
+    // FIXME: here is a workaround for the issue: https://github.com/spring-cloud/spring-cloud-gateway/issues/1442
     implementation("org.springframework.cloud:spring-cloud-starter-netflix-hystrix")
 
     // *** Service discovery ***
-    // TODO
-    // implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
+    implementation("org.springframework.cloud:spring-cloud-starter-netflix-eureka-client")
 
-    // *** Client side load balancer ***
-    // TODO
-    // implementation("org.springframework.cloud:spring-cloud-starter-loadbalancer")
+    // *** Client-side load balancing ***
+    implementation("org.springframework.cloud:spring-cloud-starter-loadbalancer")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")

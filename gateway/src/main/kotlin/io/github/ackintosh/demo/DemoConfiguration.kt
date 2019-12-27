@@ -19,11 +19,11 @@ class DemoConfiguration {
                             .circuitBreakerConfig(
                                     CircuitBreakerConfig.custom()
                                             .slidingWindow(3, 1, CircuitBreakerConfig.SlidingWindowType.COUNT_BASED)
-                                            .slowCallDurationThreshold(Duration.ofMillis(100))
+                                            .slowCallDurationThreshold(Duration.ofMillis(5000))
                                             .slowCallRateThreshold(3F)
                                             .build()
                             )
-                            .timeLimiterConfig(TimeLimiterConfig.custom().timeoutDuration(Duration.ofMillis(200)).build())
+                            .timeLimiterConfig(TimeLimiterConfig.custom().timeoutDuration(Duration.ofMillis(5000)).build())
                             .build()
                 }
             }
