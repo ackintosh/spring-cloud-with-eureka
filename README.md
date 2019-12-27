@@ -7,7 +7,9 @@
 - [Eureka](https://github.com/Netflix/eureka)
 
 ```sh
+# Eureka dashboard
 $ open http://localhost:9010/
 
+# GET healthy service via gateway
 $ open http://localhost:9000/healthy/
 ```
