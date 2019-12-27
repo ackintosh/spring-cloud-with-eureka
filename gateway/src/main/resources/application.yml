@@ -9,6 +9,8 @@ spring:
     gateway:
       routes:
         - id: healthy-service
+          # The `lb` scheme, to resolve the service name with LoadBalancerClient
+          # https://cloud.spring.io/spring-cloud-gateway/reference/html/#the-loadbalancerclient-filter
           uri: lb://healthy-service
           predicates:
             - Path=/healthy/**
