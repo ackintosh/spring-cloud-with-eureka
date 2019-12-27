@@ -1,0 +1,22 @@
+server:
+  port: 9010
+
+eureka:
+ instance:
+   hostname: eureka-server
+#   leaseRenewalIntervalInSeconds: 15
+ client:
+   serviceUrl:
+     defaultZone: http://localhost:9010/eureka/
+   register-with-eureka: false
+   fetch-registry: false
+
+spring:
+  application:
+    name: eureka-server
+  cloud:
+    loadbalancer:
+      ribbon:
+        # There's RibbonLoadBalancerClient on the classpath.
+        # To avoid that the client is used as default, disable it.
+        enabled: false

@@ -8,18 +8,18 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: item-service
+        - id: healthy-service
           uri: http://localhost:9001
           predicates:
-            - Path=/item/**
+            - Path=/healthy/**
           filters:
-            - RewritePath=/item/(?<path>.*), /$\{path}
+            - RewritePath=/healthy/(?<path>.*), /$\{path}
             # The `CircuitBreaker` filter is enabled via spring-cloud-starter-circuitbreaker-reactor-resilience4j
             # https://cloud.spring.io/spring-cloud-gateway/reference/html/#spring-cloud-circuitbreaker-filter-factory
             - name: CircuitBreaker
               args:
                 # The `name` value is passed to Resilience4JConfigBuilder as `id`
                 # SEE: DemoConfiguration#defaultCustomizer
-                name: exampleSlowCircuitBreaker
+                name: healthyService
 
 logging.level.io.github.resilience4j: DEBUG
