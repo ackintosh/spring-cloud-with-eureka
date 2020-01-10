@@ -7,6 +7,8 @@
 - [Eureka](https://github.com/Netflix/eureka)
 
 ```sh
+$ docker-compose up
+
 # Eureka dashboard
 $ open http://localhost:9010/
 
