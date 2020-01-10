@@ -23,6 +23,24 @@ spring:
                 # The `name` value is passed to Resilience4JConfigBuilder as `id`
                 # SEE: DemoConfiguration#defaultCustomizer
                 name: healthyService
+        - id: faulty-service
+          uri: lb://faulty-service
+          predicates:
+            - Path=/faulty/**
+          filters:
+            - RewritePath=/faulty/(?<path>.*), /$\{path}
+            - name: CircuitBreaker
+              args:
+                name: faultyService
+        - id: slow-service
+          uri: lb://slow-service
+          predicates:
+            - Path=/slow/**
+          filters:
+            - RewritePath=/slow/(?<path>.*), /$\{path}
+            - name: CircuitBreaker
+              args:
+                name: slowService
 
 logging.level.io.github.resilience4j: DEBUG
 
