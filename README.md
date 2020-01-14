@@ -6,6 +6,8 @@
 - [Spring Cloud LoadBalancer](https://spring.io/guides/gs/spring-cloud-loadbalancer/)
 - [Eureka](https://github.com/Netflix/eureka)
 
+:tipping_hand_man: Raising the memory limit on Docker engine on your host machine may help you If you have build errors on `docker-compose up`.
+
 ```sh
 $ docker-compose up
 
