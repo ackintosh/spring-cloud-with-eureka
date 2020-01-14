@@ -4,48 +4,48 @@ services:
     container_name: eureka-server
     ports:
       - "9010:9010"
-    image: openjdk:8-jdk-alpine
+    image: amazoncorretto:11
     volumes:
       - ./eureka-server:/app
     working_dir: /app
-    entrypoint: ./gradlew bootRun
+    entrypoint: ./gradlew --no-daemon --stacktrace bootRun
 
   gateway:
     container_name: gateway
     ports:
       - "9000:9000"
-    image: openjdk:8-jdk-alpine
+    image: amazoncorretto:11
     volumes:
       - ./gateway:/app
     working_dir: /app
-    entrypoint: ./gradlew bootRun
+    entrypoint: ./gradlew --no-daemon --stacktrace bootRun
 
-  health-service:
-    container_name: health-service
+  healthy-service:
+    container_name: healthy-service
     ports:
       - "9001:9001"
-    image: openjdk:8-jdk-alpine
+    image: amazoncorretto:11
     volumes:
-      - ./gateway:/app
+      - ./healthy-service:/app
     working_dir: /app
-    entrypoint: ./gradlew bootRun
+    entrypoint: ./gradlew --no-daemon --stacktrace bootRun
 
   faulty-service:
     container_name: faulty-service
     ports:
       - "9002:9002"
-    image: openjdk:8-jdk-alpine
+    image: amazoncorretto:11
     volumes:
-      - ./gateway:/app
+      - ./faulty-service:/app
     working_dir: /app
-    entrypoint: ./gradlew bootRun
+    entrypoint: ./gradlew --no-daemon --stacktrace bootRun
 
   slow-service:
     container_name: slow-service
     ports:
       - "9003:9003"
-    image: openjdk:8-jdk-alpine
+    image: amazoncorretto:11
     volumes:
-      - ./gateway:/app
+      - ./slow-service:/app
     working_dir: /app
-    entrypoint: ./gradlew bootRun
+    entrypoint: ./gradlew --no-daemon --stacktrace bootRun
