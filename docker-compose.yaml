@@ -18,6 +18,8 @@ services:
     volumes:
       - ./gateway:/app
     working_dir: /app
+    environment:
+      EUREKA_SERVER: eureka-server
     entrypoint: ./gradlew --no-daemon --stacktrace bootRun
 
   healthy-service:
@@ -28,6 +30,8 @@ services:
     volumes:
       - ./healthy-service:/app
     working_dir: /app
+    environment:
+      EUREKA_SERVER: eureka-server
     entrypoint: ./gradlew --no-daemon --stacktrace bootRun
 
   faulty-service:
@@ -38,6 +42,8 @@ services:
     volumes:
       - ./faulty-service:/app
     working_dir: /app
+    environment:
+      EUREKA_SERVER: eureka-server
     entrypoint: ./gradlew --no-daemon --stacktrace bootRun
 
   slow-service:
@@ -48,4 +54,6 @@ services:
     volumes:
       - ./slow-service:/app
     working_dir: /app
+    environment:
+      EUREKA_SERVER: eureka-server
     entrypoint: ./gradlew --no-daemon --stacktrace bootRun
