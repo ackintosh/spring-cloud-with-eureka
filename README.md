@@ -2,11 +2,11 @@
 
 - Spring Boot (Kotlin)
 - [Spring Cloud Gateway](https://spring.io/projects/spring-cloud-gateway)
-- [Spring Cloud Circuit Breaker](https://spring.io/projects/spring-cloud-circuitbreaker)
+- [Spring Cloud Circuit Breaker](https://spring.io/projects/spring-cloud-circuitbreaker) ([Resilience4j](https://github.com/resilience4j/resilience4j))
 - [Spring Cloud LoadBalancer](https://spring.io/guides/gs/spring-cloud-loadbalancer/)
 - [Eureka](https://github.com/Netflix/eureka)
 
-:tipping_hand_man: Raising the memory limit on Docker engine on your host machine may help you if you have build errors while `docker-compose up`.
+:tipping_hand_man: Raising the memory limit of Docker engine on your host machine may help you if you have build errors while `docker-compose up`.
 
 ```sh
 $ docker-compose up
