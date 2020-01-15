@@ -15,11 +15,11 @@ $ docker-compose up
 $ open http://localhost:9010/
 
 # GET healthy service via gateway
-$ open http://localhost:9001/healthy/
+$ open http://localhost:9000/healthy/
 # GET faulty service via gateway
-$ open http://localhost:9002/faulty/
+$ open http://localhost:9000/faulty/
 # GET slow service via gateway
-$ open http://localhost:9003/slow/
+$ open http://localhost:9000/slow/
 ```
 
 ![image](https://user-images.githubusercontent.com/1885716/72339178-30222980-3709-11ea-93d7-f725c112827e.png)
